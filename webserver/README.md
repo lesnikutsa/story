@@ -1,10 +1,10 @@
-# Launching your own web server
+# Launching your own webserver
 
 ## Installation Steps
 
-1. Download custom_http_server.py and config files to your server
+1. Download **custom_http_server.py** and **config.ini** files to your server
 
-2. Create a directory for future files or set SHARE_DIR for webserver in config file. Default is $HOME/node-share
+2. Create a directory for future files or set SHARE_DIR for webserver in config file. Default is `$HOME/node-share`
 ```
 mkdir -p $HOME/node-share
 ```
