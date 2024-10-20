@@ -1,7 +1,8 @@
-More about the dashboard [here](https://grafana.com/grafana/dashboards/22119-story-dashboard-by-let-s-node/)
-![Screenshot](dashboard1.png)
-
 # Grafana Installation Guide for Story Node
+
+More about the dashboard [here](https://grafana.com/grafana/dashboards/22119-story-dashboard-by-let-s-node/)
+
+![Screenshot](dashbord1.jfif)
 
 ## Introduction
 
