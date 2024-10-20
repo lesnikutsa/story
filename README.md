@@ -17,6 +17,7 @@ To start automatic installation of the node, run:
 wget -O installer_story.sh https://raw.githubusercontent.com/lesnikutsa/story/refs/heads/main/installer_story.sh && chmod +x installer_story.sh && ./installer_story.sh
 ```
 
+
 #### Automatic snapshots
 
 This script provides the following choice of actions:
