@@ -7,7 +7,10 @@ More about the dashboard [here](https://grafana.com/grafana/dashboards/22119-sto
 ## Introduction
 
 This guide provides step-by-step instructions on how to install and set up a Dashboard for monitoring a Story node and key hardware performance metrics  
-**Note**: It is recommended to install Grafana and Prometheus on a separate server. On the server running your Story node, install Node Exporter, enable Prometheus in the node configuration, and add metrics flags to story-geth. This setup ensures optimal performance and easier management. More details on configuration can be found below.
+
+**Note**: It is recommended to install Grafana and Prometheus on a separate server. On the server running your Story node, install Node Exporter, enable Prometheus in the node configuration, and add metrics flags to story-geth. This setup ensures optimal performance and easier management. More details on configuration can be found below
+
+**Note**: If you set up AlertManager on the Grafana and Prometheus server, you will be able to receive notifications in Telegram or Discord about node problems, for example, when the service file story does not work
 
 ## Prerequisites
 
