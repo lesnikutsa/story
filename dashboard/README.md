@@ -1,9 +1,12 @@
+More about the dashboard [here](https://grafana.com/grafana/dashboards/22119-story-dashboard-by-let-s-node/)
+![Screenshot](dashboard1.png)
+
 # Grafana Installation Guide for Story Node
 
 ## Introduction
 
 This guide provides step-by-step instructions on how to install and set up a Dashboard for monitoring a Story node and key hardware performance metrics  
-**Note**: It is recommended to install Grafana and Prometheus on a separate server. On the server where your Story node is running, install Node Exporter and enable Prometheus in the node configuration. This setup ensures optimal performance and easier management. More details on configuration can be found below.
+**Note**: It is recommended to install Grafana and Prometheus on a separate server. On the server running your Story node, install Node Exporter, enable Prometheus in the node configuration, and add metrics flags to story-geth. This setup ensures optimal performance and easier management. More details on configuration can be found below.
 
 ## Prerequisites
 
@@ -11,6 +14,7 @@ Before you begin, ensure you have the following:
 
 - **Grafana** installed on your system. If not, download it from the [official website](https://grafana.com/docs/grafana/latest/setup-grafana/installation/).
 - A configured Prometheus data source for your Node in Grafana, along with the Node Exporter added to collect hardware metrics
+- Can use this [guide to install](https://utsa.gitbook.io/services/cosmos-wiki/node-exporter-+-grafana-+-prometheus-+-alertmanager) 
 
 ## Installation Steps
 
@@ -65,7 +69,7 @@ prometheus_listen_addr = "0.0.0.0:26660"
 ``` 
 --metrics --metrics.addr 0.0.0.0 --metrics.port 6060
 ```
-- If Node Exporter is not installed on your server, use this [guide](https://medium.com/@abdullah.eid.2604/node-exporter-installation-on-linux-ubuntu-8203d033f69c) to install and configure Node Exporter with Prometheus.
+- If Node Exporter is not installed on your server, use this [guide](https://utsa.gitbook.io/services/cosmos-wiki/node-exporter-+-grafana-+-prometheus-+-alertmanager#node-exporter) to install and configure Node Exporter with Prometheus.
 
 - **Data Source Verification**: Double-check that the dashboard panels are pulling data from the correct data source.
 
