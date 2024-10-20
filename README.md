@@ -1,4 +1,5 @@
-This repository contains publicly available services for the Story node
+## This repository contains publicly available services for the Story node
+
 
 #### To start automatic installation of the node, run:
 ```
