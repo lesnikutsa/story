@@ -42,7 +42,7 @@ setup_geth_instance() {
   cd bin
   wget https://github.com/piplabs/story-geth/releases/download/v0.10.0/geth-linux-amd64 || die "Failed to download Geth binary"
   mv "$HOME/bin/geth-linux-amd64" "$HOME/go/bin/story-geth" || die "Failed to move Geth binary"
-  chmod +x "$HOME/go/bin/story-geth
+  chmod +x "$HOME/go/bin/story-geth"
   mkdir -p "$HOME/.story/story"
   mkdir -p "$HOME/.story/geth"
 }
