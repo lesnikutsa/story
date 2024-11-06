@@ -154,7 +154,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_consensus_latest_block_height{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_consensus_latest_block_height{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "legendFormat": "Latest Block Height",
                 "range": true,
                 "refId": "A"
@@ -235,7 +235,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_blocksync_syncing{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_blocksync_syncing{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "legendFormat": "Fast Syncing",
                 "range": true,
                 "refId": "A"
@@ -297,7 +297,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_p2p_peers{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_p2p_peers{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "legendFormat": "Peers",
                 "range": true,
                 "refId": "A"
@@ -364,7 +364,7 @@
                 },
                 "disableTextWrap": false,
                 "editorMode": "code",
-                "expr": "(1 - (avg(cometbft_consensus_validator_missed_blocks{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"})) / (avg(cometbft_consensus_height{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}))) * 100",
+                "expr": "(1 - (avg(cometbft_consensus_validator_missed_blocks{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"})) / (avg(cometbft_consensus_height{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}))) * 100",
                 "fullMetaSearch": false,
                 "includeNullMetadata": true,
                 "instant": false,
@@ -430,7 +430,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "avg(cometbft_consensus_validator_power{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}) / avg(cometbft_consensus_validators_power{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}) * 100",
+                "expr": "avg(cometbft_consensus_validator_power{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}) / avg(cometbft_consensus_validators_power{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}) * 100",
                 "instant": false,
                 "legendFormat": "__auto",
                 "range": true,
@@ -496,7 +496,7 @@
                 },
                 "disableTextWrap": false,
                 "editorMode": "builder",
-                "expr": "cometbft_consensus_chain_size_bytes{chain_id=\"iliad-0\", job=\"$job\", instance=\"$node:$story_port\"}",
+                "expr": "cometbft_consensus_chain_size_bytes{chain_id=\"odyssey-0\", job=\"$job\", instance=\"$node:$story_port\"}",
                 "fullMetaSearch": false,
                 "includeNullMetadata": true,
                 "instant": false,
@@ -4158,7 +4158,7 @@
                 },
                 "editorMode": "code",
                 "exemplar": false,
-                "expr": "sum(rate(cometbft_state_block_processing_time_sum{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m])) / sum(rate(cometbft_state_block_processing_time_count{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m]))",
+                "expr": "sum(rate(cometbft_state_block_processing_time_sum{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m])) / sum(rate(cometbft_state_block_processing_time_count{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m]))",
                 "format": "time_series",
                 "instant": false,
                 "legendFormat": "Average Block Processing Time",
@@ -4255,7 +4255,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "rate(cometbft_consensus_proposal_receive_count{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[$__rate_interval])",
+                "expr": "rate(cometbft_consensus_proposal_receive_count{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[$__rate_interval])",
                 "legendFormat": "Block Time",
                 "range": true,
                 "refId": "A"
@@ -4350,7 +4350,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_consensus_block_size_bytes{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_consensus_block_size_bytes{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "legendFormat": "Block Size",
                 "range": true,
                 "refId": "A"
@@ -4447,7 +4447,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "sum(rate(cometbft_state_block_processing_time_bucket{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\", le=\"+Inf\"}[5m]))",
+                "expr": "sum(rate(cometbft_state_block_processing_time_bucket{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\", le=\"+Inf\"}[5m]))",
                 "instant": false,
                 "legendFormat": "<= +Inf sec",
                 "range": true,
@@ -4515,7 +4515,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_mempool_size_bytes{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_mempool_size_bytes{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "instant": false,
                 "legendFormat": "__auto",
                 "range": true,
@@ -4614,7 +4614,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_consensus_total_txs{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_consensus_total_txs{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "legendFormat": "Total TXs",
                 "range": true,
                 "refId": "A"
@@ -4712,7 +4712,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_mempool_active_outbound_connections{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_mempool_active_outbound_connections{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "legendFormat": "Mempool Size",
                 "range": true,
                 "refId": "A"
@@ -4778,7 +4778,7 @@
                   "uid": "${DS_PROMETHEUS}"
                 },
                 "editorMode": "code",
-                "expr": "cometbft_mempool_size{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
+                "expr": "cometbft_mempool_size{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}",
                 "instant": false,
                 "legendFormat": "{{_name_}}",
                 "range": true,
@@ -5065,7 +5065,7 @@
               "uid": "${DS_PROMETHEUS}"
             },
             "editorMode": "code",
-            "expr": "sum(rate(cometbft_p2p_message_receive_bytes_total{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m]))",
+            "expr": "sum(rate(cometbft_p2p_message_receive_bytes_total{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m]))",
             "legendFormat": "Received B/s",
             "range": true,
             "refId": "A"
@@ -5163,7 +5163,7 @@
               "uid": "${DS_PROMETHEUS}"
             },
             "editorMode": "code",
-            "expr": "sum(rate(cometbft_p2p_message_send_bytes_total{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m]))",
+            "expr": "sum(rate(cometbft_p2p_message_send_bytes_total{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[5m]))",
             "legendFormat": "Sent B/s",
             "range": true,
             "refId": "A"
@@ -5260,7 +5260,7 @@
               "uid": "${DS_PROMETHEUS}"
             },
             "editorMode": "code",
-            "expr": "sum by (message_type) (rate(cometbft_p2p_message_receive_bytes_total{chain_id=\"iliad-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[$__rate_interval]))",
+            "expr": "sum by (message_type) (rate(cometbft_p2p_message_receive_bytes_total{chain_id=\"odyssey-0\", job=~\"$job\",instance=~\"$node:$story_port\"}[$__rate_interval]))",
             "instant": false,
             "legendFormat": "__auto",
             "range": true,
