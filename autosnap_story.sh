@@ -30,7 +30,7 @@ fi
 # Remove existing data directories
 log "Removing existing data directories..."
 rm -rf $HOME/.story/story/data || die "Failed to remove Story data directory"
-rm -rf $HOME/.story/geth/iliad/geth/chaindata || die "Failed to remove Story-Geth chaindata directory"
+rm -rf $HOME/.story/geth/odyssey/geth/chaindata || die "Failed to remove Story-Geth chaindata directory"
 
 # Prompt user to select the source for Story and Story-Geth data
 echo "Select the source to download Story and Story-Geth data:"
@@ -42,12 +42,12 @@ if [[ "$choice" == "1" ]]; then
   log "Downloading and extracting Story data from source 1..."
   curl -o - -L https://share102.utsa.tech/story/story_testnet.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.story/story/ || die "Failed to download or extract Story data from source 1"
   log "Downloading and extracting Story-Geth data from source 1..."
-  curl -o - -L https://share102.utsa.tech/story/story_geth_testnet.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.story/geth/iliad/geth/ || die "Failed to download or extract Story-Geth data from source 1"
+  curl -o - -L https://share102.utsa.tech/story/story_geth_testnet.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.story/geth/odyssey/geth/ || die "Failed to download or extract Story-Geth data from source 1"
 elif [[ "$choice" == "2" ]]; then
   log "Downloading and extracting Story data from source 2..."
   curl -o - -L https://share106-7.utsa.tech/story/story_testnet.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.story/story/ || die "Failed to download or extract Story data from source 2"
   log "Downloading and extracting Story-Geth data from source 2..."
-  curl -o - -L https://share106-7.utsa.tech/story/story_geth_testnet.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.story/geth/iliad/geth/ || die "Failed to download or extract Story-Geth data from source 2"
+  curl -o - -L https://share106-7.utsa.tech/story/story_geth_testnet.tar.lz4 | lz4 -c -d - | tar -x -C $HOME/.story/geth/odyssey/geth/ || die "Failed to download or extract Story-Geth data from source 2"
 else
   die "Invalid choice. Exiting."
 fi
