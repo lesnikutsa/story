@@ -41,7 +41,8 @@ setup_geth_instance() {
   mkdir bin
   cd bin
   wget https://github.com/piplabs/story-geth/releases/download/v0.10.0/geth-linux-amd64 || die "Failed to download Geth binary"
-  mv "$HOME/bin/geth-linux-amd64" "$HOME/go/bin/geth" || die "Failed to move Geth binary"
+  mv "$HOME/bin/geth-linux-amd64" "$HOME/go/bin/story-geth" || die "Failed to move Geth binary"
+  chmod +x story-geth
   mkdir -p "$HOME/.story/story"
   mkdir -p "$HOME/.story/geth"
 }
@@ -186,7 +187,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$HOME/go/bin/geth --odyssey --syncmode full --http --http.api eth,net,web3,engine --http.vhosts '*' --http.addr 0.0.0.0 --http.port ${STORY_PORT}545 --authrpc.port ${STORY_PORT}551 --ws --ws.api eth,web3,net,txpool --ws.addr 0.0.0.0 --ws.port ${STORY_PORT}546
+ExecStart=$HOME/go/bin/story-geth --odyssey --syncmode full --http --http.api eth,net,web3,engine --http.vhosts '*' --http.addr 0.0.0.0 --http.port ${STORY_PORT}545 --authrpc.port ${STORY_PORT}551 --ws --ws.api eth,web3,net,txpool --ws.addr 0.0.0.0 --ws.port ${STORY_PORT}546
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
