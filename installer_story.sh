@@ -8,10 +8,10 @@ set -euo pipefail
 from_autoinstall=true
 
 upgrade_height=1325860
-STORY_CHAIN_ID=iliad-0
+STORY_CHAIN_ID=odyssey-0
 VER=1.22.3
-SEEDS="90161a7f82ce5dbfbed1a2a9d40d4103730cff0f@5.9.87.231:26656"
-PEERS="6a07e2f396519b55ea05f195bac7800b451983c0@story-seed.mandragora.io:26656"
+SEEDS="434af9dae402ab9f1c8a8fc15eae2d68b5be3387@story-testnet-seed.itrocket.net:29656"
+PEERS="c5c214377b438742523749bb43a2176ec9ec983c@176.9.54.69:26656,5dec0b793789d85c28b1619bffab30d5668039b7@150.136.113.152:26656,89a07021f98914fbac07aae9fbb12a92c5b6b781@152.53.102.226:26656,443896c7ec4c695234467da5e503c78fcd75c18e@80.241.215.215:26656,2df2b0b66f267939fea7fe098cfee696d6243cec@65.108.193.224:23656,7cc415203fc4c1a6e534e5fed8292467cf14d291@65.21.29.250:3610,fa294c4091379f84d0fc4a27e6163c956fc08e73@65.108.103.184:26656,81eaee3be00b21d0a124016b62fb7176fa05a4f9@185.198.49.133:33556,3508ef280392bd431ea078dec16dcfae89e8eb78@213.239.192.18:26656,b04bae4f88ca12d45fc14be29ce96837b61a72b8@65.109.49.115:26656"
 
 # Function to handle errors gracefully
 die() {
@@ -40,9 +40,8 @@ setup_geth_instance() {
   rm -rf bin
   mkdir bin
   cd bin
-  wget https://story-geth-binaries.s3.us-west-1.amazonaws.com/geth-public/geth-linux-amd64-0.9.3-b224fdf.tar.gz || die "Failed to download Geth binary"
-  tar -xvzf geth-linux-amd64-0.9.3-b224fdf.tar.gz || die "Failed to extract Geth binary"
-  mv "$HOME/bin/geth-linux-amd64-0.9.3-b224fdf/geth" "$HOME/go/bin/" || die "Failed to move Geth binary"
+  wget https://github.com/piplabs/story-geth/releases/download/v0.10.0/geth-linux-amd64 || die "Failed to download Geth binary"
+  mv "$HOME/bin/geth-linux-amd64" "$HOME/go/bin/geth" || die "Failed to move Geth binary"
   mkdir -p "$HOME/.story/story"
   mkdir -p "$HOME/.story/geth"
 }
@@ -55,7 +54,7 @@ setup_story_instance() {
   rm -rf story
   git clone https://github.com/piplabs/story || die "Failed to clone Story repository"
   cd story
-  git checkout v0.11.0 || die "Failed to checkout Story version v0.11.0"
+  git checkout v0.12.1 || die "Failed to checkout Story version v0.11.0"
   go build -o story ./client || die "Failed to build Story binary"
   mv "$HOME/story/story" "$HOME/go/bin/" || die "Failed to move Story binary"
 }
@@ -160,7 +159,7 @@ initialize_node_installation() {
   setup_story_instance
 
   log "Initializing Story node"
-  story init --moniker "$MONIKER" --network iliad || die "Failed to initialize Story node"
+  story init --moniker "$MONIKER" --network odyssey || die "Failed to initialize Story node"
 
   log "Fetching genesis and address book files"
 
@@ -187,7 +186,7 @@ After=network-online.target
 
 [Service]
 User=$USER
-ExecStart=$HOME/go/bin/geth --iliad --syncmode full --http --http.api eth,net,web3,engine --http.vhosts '*' --http.addr 0.0.0.0 --http.port ${STORY_PORT}545 --authrpc.port ${STORY_PORT}551 --ws --ws.api eth,web3,net,txpool --ws.addr 0.0.0.0 --ws.port ${STORY_PORT}546
+ExecStart=$HOME/go/bin/geth --odyssey --syncmode full --http --http.api eth,net,web3,engine --http.vhosts '*' --http.addr 0.0.0.0 --http.port ${STORY_PORT}545 --authrpc.port ${STORY_PORT}551 --ws --ws.api eth,web3,net,txpool --ws.addr 0.0.0.0 --ws.port ${STORY_PORT}546
 Restart=on-failure
 RestartSec=3
 LimitNOFILE=65535
@@ -218,7 +217,7 @@ EOF
   sudo systemctl enable story story-geth || die "Failed to enable services"
 
   log "Retrieving blockchain snapshot"
-  mkdir -p "$HOME/.story/geth/iliad/geth"
+  mkdir -p "$HOME/.story/geth/odyssey/geth"
   download_script "https://raw.githubusercontent.com/lesnikutsa/story/refs/heads/main/autosnap_story.sh" "$HOME/autosnap_story.sh"
   source "$HOME/autosnap_story.sh"
 }
