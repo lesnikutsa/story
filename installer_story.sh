@@ -40,7 +40,7 @@ setup_geth_instance() {
   rm -rf bin
   mkdir bin
   cd bin
-  wget https://github.com/piplabs/story-geth/releases/download/v0.10.0/geth-linux-amd64 || die "Failed to download Geth binary"
+  wget https://github.com/piplabs/story-geth/releases/download/v0.10.1/geth-linux-amd64 || die "Failed to download Geth binary"
   mv "$HOME/bin/geth-linux-amd64" "$HOME/go/bin/story-geth" || die "Failed to move Geth binary"
   chmod +x "$HOME/go/bin/story-geth"
   mkdir -p "$HOME/.story/story"
@@ -55,7 +55,7 @@ setup_story_instance() {
   rm -rf story
   git clone https://github.com/piplabs/story || die "Failed to clone Story repository"
   cd story
-  git checkout v0.12.1 || die "Failed to checkout Story version v0.11.0"
+  git checkout v0.13.0 || die "Failed to checkout Story version v0.13.0"
   go build -o story ./client || die "Failed to build Story binary"
   mv "$HOME/story/story" "$HOME/go/bin/" || die "Failed to move Story binary"
 }
